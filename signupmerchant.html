@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="./images/babyfeet.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form for Caregiver-Cradle.com</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="main">
+        <!-- Sign up form -->
+        <section class="signup">
+            <center><div id="info"></div></center>
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        
+                        
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Your Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pass" id="pass" placeholder="Password"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="tel"><i class="zmdi zmdi-phone"></i></label>
+                                <input type="tel" name="number"maxlength="10" id="number" placeholder="Your Number">
+                            </div>
+                            <div class="form-group">
+                                <label for="price"><i class="zmdi zmdi-money"></i></label>
+                                <input type="number" name="price" id="price" min="1" max="5000" placeholder="Quantity (between 1 and 5000):">
+                            </div>
+                            
+                            <div class="form-group">
+                                
+                                <div class="select-service" style="width:200px">
+                                    <i class="zmdi zmdi-menu"></i>
+                                    <select id="domain" name="domain" class="select-dropdown bg-transparent"style="padding:5px">
+                                        <option disabled="disabled" selected="selected"><span>Choose Service</span></option>
+                                        <option>Babysitter</option>
+                                        <option>Datesitter</option>
+                                        <option>After_school</option>
+                                        <option>Tuitions</option>
+                                        <option>Special_needs</option>
+                                        <option>Daycare</option>
+                                       
+                                    </select>
+                                   
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="select-service" style="width:200px">
+                                    <i class="zmdi zmdi-home zmdi-hc-fw"></i>
+                                    <select id="city" name="city" class="select-dropdown bg-transparent"style="padding:5px">
+                                        <option disabled="disabled" selected="selected"><span>Your City</span></option>
+                                        <option>Delhi</option>
+                                        <option>Chennai</option>
+                                        <option>Kolkata</option>
+                                        <option>Bangalore</option>
+                                        <option>Mumbai</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Submit" onclick="f()" />
+                            </div>
+                        
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
+                        <a href="login.html" class="signup-image-link" style="font-size:20px">If you are already a member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- JS -->
+    <script src="https://unpkg.com/axios@0.19.0/dist/axios.min.js"></script>
+    <script>
+      
+      function f() { 
+        var email=document.getElementById('email').value
+        var pass=document.getElementById('pass').value
+        var name=document.getElementById('name').value
+        var city=document.getElementById('city').value
+        var number=document.getElementById('number').value
+        var domain=document.getElementById('domain').value
+        var price=document.getElementById('price').value
+        
+        
+        axios.post('http://localhost:3000/mercsignup', {
+        email: email,
+        pass: pass,
+        name:name,
+        city:city,
+        number:number,
+        domain:domain,
+        price:price
+        })
+    .then(response=> {
+        //console.log(response)
+        if(response.data=="done")
+            window.location.href = './web/index.html';
+        else
+          document.getElementById('info').innerHTML=response.data
+               
+    })
+    .catch(function (error) {
+        console.log(error);
+    });}
+   
+    </script>
+</body>
+</html>
