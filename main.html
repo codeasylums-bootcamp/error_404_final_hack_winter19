@@ -9,47 +9,41 @@
     <title>Main Page-Cradle.com</title>
     <style>
         body{
-            background-color: rgb(46, 146, 240);
+            background-image: url("images/black-and-white-flowers-15.jpg");
+            background-repeat: no-repeat;
+            margin-top:60px;
         }
-        #card1{
-            opacity:0.8;
-        }
-        #card2{
-            opacity:0.8;
-        }
-        #card1:hover{
-            opacity:1;
-        }
-        #card2:hover{
-            opacity:1;
-        }
-    </style>
+     </style>
 
     
 </head>
 <body>
-    <div class="row">
-        <div class="column col md 6">
-            <div class="card" id="card1" style="width: 18rem; float:right; margin-right:40px;margin-top:150px">
-                <img src="images/images.jpeg" class="card-img-top" alt="..." style="width:100%">
-                <div class="card-body">
-                  <!-- <h5 class="card-title" style="text-align: center;">User</h5> -->
-                  <a href="signupuser.html" class="btn btn-primary" >User</a>
-                </div>
-              </div>
+      <div class="card text-center" style="margin-top:200px; margin-right:130px; margin-left:130px">
+        <div class="card-header">
+          <h2>Let's get Started</h2>
         </div>
-        <div class="column col md 6">
-            <div class="card" id="card2" style="width: 18rem;float:left;margin-left:40px;margin-top:150px">
-                <img src="images/avatar2.jpg" class="card-img-top" alt="..."style="width:100%">
-                <div class="card-body col-md-6">
-                  <!-- <h5 class="card-title" style="text-align: center;">Merchant</h5> -->
-                  <a href="signupmerchant.html" class="btn btn-primary">Merchant</a>
+        <div class="row">
+            <div class="col-sm-6">
+              <div class="card" style=" margin-right:20px; margin-left:40px; margin-top:10px; margin-bottom:10px">
+                <div class="card-body">
+                    <img src="images/cloud.jpg" class="card-img-top" alt="..." style="width:150px;height:140px">
+                  <h5 class="card-title">I need a caregiver</h5>
+                  <p class="card-text">Start your free search for care in your area.</p>
+                  <a href="signupuser.html" class="btn btn-outline-primary">Find care</a>
                 </div>
               </div>
             </div>
-        </div>
-
-
-    </div>
+            <div class="col-sm-6">
+              <div class="card" style=" margin-right:40px; margin-left:20px; margin-top:10px; margin-bottom:10px">
+                <div class="card-body">
+                    <img src="images/cloud2.jpg" class="card-img-top" alt="..." style="width:140px;height:140px">
+                  <h5 class="card-title">I want a care job</h5>
+                  <p class="card-text">Create a free profile and search for jobs.</p>
+                  <a href="signupmerchant.html" class="btn btn-outline-primary">Find jobs</a>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
 </body>
 </html>
