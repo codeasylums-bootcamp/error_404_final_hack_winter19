@@ -27,7 +27,7 @@
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-form">
-                        <h2 class="form-title">Login for Parent</h2>
+                        <h2 class="form-title">Login for Caregiver</h2>
                         
                             <div class="form-group">
                                 <label for="your_email"><i class="zmdi zmdi-account material-icons-name"></i></label>
@@ -61,11 +61,11 @@
         axios.post('http://localhost:3000/login', {
         email: email,
         password: pass,
-        type:"user"
+        type:"merchant"
         })
     .then(response=> {
         if(response.data=="Loggedin")
-            window.location.href = './web/index.html';
+            window.location.href = './web1/index.html';
         else
             {
                 document.getElementById('info').innerHTML="Wrong Credentials";
