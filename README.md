@@ -7,4 +7,3 @@ TEAM MEMBERS :
   RISHAV  :    erober 
   MANYA   :    Manya1998
   REEMA   :    ReemaLakra
-  YASHWI  :    yashwiparashar
