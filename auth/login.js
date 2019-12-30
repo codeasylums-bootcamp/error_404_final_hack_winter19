@@ -6,7 +6,7 @@ const ms=require('../models/merc_Schema')
 router.post('/',(req,res)=>
 {
     //res.send("Loggedin")
-    if(req.body.type==="merc")
+    if(req.body.type==="merchant")
         var db = ms
     else
         var db = us
@@ -17,10 +17,10 @@ router.post('/',(req,res)=>
         if(user.length>0)
             {
                 if(user[0].password===req.body.password)
-                    if(user[0].type===req.body.type)
+                    //if(user[0].type===req.body.type)
                         res.send("Loggedin").status(200)
-                    else
-                        res.send("Wrong user type")
+                    // else
+                    //     res.send("Wrong user type")
                 else
                     res.send("Wrong password")
             }

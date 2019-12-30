@@ -36,14 +36,14 @@ router.post('/',(req,res)=>
             {res.send("This Email is taken. If already registered go to login.");}
         else
             {
-                newuser.save();console.log("Signup Done");
+                newuser.save();console.log("Merc Signup Done");
                 var mailOptions={
                     to : req.body.email,
                     subject : "Sign Up Done.",
                     text : "Signup as Caretaker is Complete. Welcome."
                 }
                 mailConfig.sendMail(mailOptions, function(error, response){})
-                res.send("Signup Done").status(200)
+                res.send("done").status(200)
             }
     })
 

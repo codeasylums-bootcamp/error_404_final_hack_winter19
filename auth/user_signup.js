@@ -32,7 +32,8 @@ router.post('/',(req,res)=>
     .exec()
     .then(user=>{
         if(user.length>0)
-            {res.send("This Email is taken. If already registered go to login.")}
+            {
+            document.getElementById("elem").innerHTML="This Email is taken. If already registered go to login.";}
         else
             {
                 newuser.save();console.log("Signup Done");

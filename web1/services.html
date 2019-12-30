@@ -45,9 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  
 				</div>
 			  </li>
-			  <li class="nav-item">
-				<a class="nav-link " href="daycare.html">Daycare</a>
-			  </li>
+			  
 			  <li class="nav-item">
 				<a class="nav-link " href="contact.html">Contact</a>
 			  </li>
@@ -139,7 +137,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</h1>
 	<div class="form-group">
 		<h2>
-	  <label for="exampleFormControlSelect1">Select City</label>
+	  <label for="exampleFormControlSelect1"> Change City</label>
 	  </h2>
 	  <select class="form-control" id="city" >
 		<option>Delhi</option>
@@ -152,7 +150,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<div class="form-group">
 		<h2>
-	  <label for="exampleFormControlSelect2">Select Service</label>
+	  <label for="exampleFormControlSelect2">Change Service</label>
 	  <select  class="form-control" id="service">
 		<option>Babysitter</option>
 		<option>Datesitter</option>
@@ -165,9 +163,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<div class="form-group">
 		<h2>
-	  <label for="exampleFormControlSelect2">Payable Amount</label>
+	  <label for="exampleFormControlSelect2"> Change Payable Amount</label>
 		<input type="text" class="form-control" id="price" placeholder=" Enter Price"  >
-
+		<label for="exampleFormControlSelect2"> Add TimeHours</label> 
+		<input type="text" class="form-control" id="time" placeholder=" Enter Price"  >
 		
 	</div>
 	
@@ -292,33 +291,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         var city=document.getElementById('city').value
         var domain=document.getElementById('service').value
         var price=document.getElementById('price').value
+		var time=document.getElementById('time').value
+
         
-        
-        axios.post('http://localhost:4000/user', {
+        axios.put('http://localhost:4000/user', {
         city:city,
         domain:domain,
-        price:price
+		price:price,
+		time:time
         })
     .then(response=> {
 			
-			//console.log(response)
-			if(response.data!=="none")
-			{	document.getElementById("elem").innerHTML="";
-				for(i=0;i<response.data.length;i++)
-         		{
-					s=(response.data[i]).split(':')
-					var node = document.createElement("LI");                 // Create a <li> node
-					var textnode = document.createTextNode("Name : "+s[0]+" Number:"+s[1]+" Price: "+s[2]);         // Create a text node
-					node.appendChild(textnode);                              // Append the text to <li>
-					document.getElementById("elem").appendChild(node); 
-				}}
-			else
-			 {	document.getElementById("elem").innerHTML="";
-				var node = document.createElement("LI");                 // Create a <li> node
-				var textnode = document.createTextNode("Sorry we are not here yet.");         // Create a text node
-				node.appendChild(textnode);                              // Append the text to <li>
-				document.getElementById("elem").appendChild(node);
-			 }
+			console.log(response)
+			// if(response.data!=="none")
+			// {	document.getElementById("elem").innerHTML="";
+			// 	for(i=0;i<response.data.length;i++)
+         	// 	{
+			// 		s=(response.data[i]).split(':')
+			// 		var node = document.createElement("LI");                 // Create a <li> node
+			// 		var textnode = document.createTextNode("Name : "+s[0]+" Number:"+s[1]+" Price: "+s[2]);         // Create a text node
+			// 		node.appendChild(textnode);                              // Append the text to <li>
+			// 		document.getElementById("elem").appendChild(node); 
+			// 	}}
+			// else
+			//  {	document.getElementById("elem").innerHTML="";
+			// 	var node = document.createElement("LI");                 // Create a <li> node
+			// 	var textnode = document.createTextNode("Sorry we are not here yet.");         // Create a text node
+			// 	node.appendChild(textnode);                              // Append the text to <li>
+			// 	document.getElementById("elem").appendChild(node);
+			//  }
 
     })
     .catch(function (error) {
@@ -326,3 +327,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     });}
    
 </script>
+ <script >
+        function f() { 
+        var email=document.getElementById('email').value
+        var pass=document.getElementById('pass').value
+        var name=document.getElementById('name').value
+        var city=document.getElementById('city').value
+        
+        axios.post('http://localhost:3000/usersignup', {
+        email: email,
+        pass: pass,
+        name:name,
+        city:city,
+        })
+    .then(response=> {
+        
+        if(response.data=="Signup Done")
+            window.location.href = './web/index.html';
+        else
+            document.getElementById('info').innerHTML=response.data
+        
+    })
+    .catch(function (error) {
+        console.log(error);
+    });}
+    </script>
