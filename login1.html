@@ -23,7 +23,7 @@
     
     <div class="main">
         <section class="signup">    
-            <div id="info"></div>           
+                    
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-form">
@@ -40,7 +40,7 @@
                             <div class="form-group form-button">
                               <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" onclick="f()"/>
                             </div>
-                        
+                            <div id="info"></div>   
                     </div>
                     <div class="signin-image">
                         <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
@@ -69,7 +69,6 @@
         else
             {
                 document.getElementById('info').innerHTML="Wrong Credentials";
-                //window.location.href = './login.html';
             }
         
     })

@@ -255,20 +255,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			    					<li>Full access</li>
 			    					<!-- <li>Documentation</li> -->
 			    					<li>Customers Support</li>
-			    					<li>Free Updates</li>
+									<li>Free Updates</li>
+									<li>Free Gifts</li>
 			    					<!-- <li>Unlimited Services</li> -->
 			    				</ul>
 		    				</div>
 		    			</div>
 		    		    <div class="price-selet pric-sclr1">		    			   
-		    			   	  <button id="free" style="background-color: blue; color: white;">Suscribe Now</button>
+		    			   	  <!-- <button id="free" style="background-color: blue; color: white;">Suscribe Now</button> -->
 		    			</div>
 		    		</div>
 	    		</div>
 	    		<div class="price-grid">
 	    			<div class="price-block agile">
 		    			<div class="price-gd-top pric-clr2">
-		    				<h4>Standard</h4>
+		    				<h4>Premium</h4>
 		    				<h3>Rs 700</h3>
 		    				<h5>5 months</h5>
 		    			</div>
@@ -294,7 +295,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    		<div class="price-grid wthree">
 	    			<div class="price-block agile">
 		    			<div class="price-gd-top pric-clr3">
-		    				<h4>Premium</h4>
+		    				<h4>Standard</h4>
 		    				<h3>Rs 400</h3>
 		    				<h5>2 months</h5>
 		    			</div>
@@ -310,11 +311,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    				</div>
 		    			</div>
 		    		    <div class="price-selet pric-sclr3">
-							<button id="premium"style="background-color: blue;color: white;">Suscribe Now</button>
-		    			</div>
+							<!-- <button id="premium"style="background-color: blue;color: white;">Suscribe Now</button> -->
+						</div>
+
 		    		</div>
     	       </div>
-             <div class="clearfix"> </div>
+			 <div class="clearfix"> </div>
+			 <center> <label ><h4>Enter Email</h4></label></center>
+			 <center><input type="text" id="email"></center><br>
+			 <center> <label ><h4>Enter Subscription Type</h4></label></center>
+			 <center><input type="text" id="subscription_type"></center><br>
+		<center><button type="submit" class="btn btn-info btn-block" onclick="f()">Subscribe Now</button></center><br>
+
+		<center><div id="elem"></div></center><br>
+
+
 		</div>
 	</div>
 	</div>
@@ -607,7 +618,25 @@ function showSlides(n) {
 </script> 
 <!-- //scrolling script -->
 <!--//start-smoth-scrolling -->
-
+<script src="https://unpkg.com/axios@0.19.0/dist/axios.min.js"></script>
+<script>
+    function f() { 
+		var email=document.getElementById('email').value  
+        var subscription_type=document.getElementById('subscription_type').value  
+       
+       axios.post('http://localhost:3000/cont', {
+	  subscription_type:subscription_type,
+	  email:email
+       })
+   .then(response=> {
+       document.getElementById("elem").innerHTML=response.data;
+          
+   })
+   .catch(function (error) {
+       console.log(error);
+   });}
+  
+</script>
 
 </body>
 </html>
