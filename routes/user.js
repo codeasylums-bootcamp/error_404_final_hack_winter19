@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const ms= require('../models/merc_Schema')
-var c;
+
 router.post('/',(req,res)=>
 {
     //res.send("User Dashboard")
@@ -9,7 +9,8 @@ router.post('/',(req,res)=>
     .exec()
     .then(user=>{
         if(user.length>0)
-              {  var c=[];
+              {  //console.log(user)
+                  var c=[];
                 for(i=0;i<user.length;i++)
                     {if(user[i].price<=req.body.price)
                         c[i]=(user[i].name+":"+user[i].phno+":" + user[i].price )
@@ -22,7 +23,8 @@ router.post('/',(req,res)=>
                 }
             
         else
-            {res.send("none")}
+            {//console.log(user)
+                res.send("none")}
     })
 
 
