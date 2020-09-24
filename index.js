@@ -9,7 +9,7 @@ const login= require('./auth/login')
 const user= require('./routes/user')
 const cont= require('./routes/cont')
 const subs= require('./routes/subs')
-mongoose.connect("mongodb+srv://gabbar329:mongo@cluster0-718ce.mongodb.net/user?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://xxx:yyy@cluster0-718ce.mongodb.net/user?retryWrites=true&w=majority");
 
 
 const app = express();
